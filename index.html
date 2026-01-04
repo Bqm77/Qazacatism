@@ -146,10 +146,7 @@
 
     /* --------------------------
        Section-specific text color rules
-       --------------------------
-       (Simple: ensures the Games and Home text colors are black as requested,
-        and the Features section uses the darker theme after swapping.)
-    */
+       -------------------------- */
     /* Make all text in the Games section black for readability */
     #games,
     #games .section-lead,
@@ -224,23 +221,24 @@
         <!-- Cards / clickable links -->
         <div class="hero-right" aria-hidden="true">
           <div class="cards" id="cards">
-            <!-- wrap cards in anchors so clicking jumps to the detail sections -->
-            <a class="card-link" href="#game-qazacatism" title="Qazacatism — details">
-              <div class="card card-c">
-                <div class="card-art" style="background-image:linear-gradient(135deg,#ff8a80,#ff80ab)"></div>
+            <!-- Ensnapifacation card uses resources/Back.png as requested -->
+            <a class="card-link" href="#game-ensnapifacation" title="Ensnapifacation — details">
+              <div class="card card-a" role="group" aria-label="Ensnapifacation card">
+                <div class="card-art" style="background-image:url('resources/Back.png');background-size:cover;background-position:center" role="img" aria-label="Ensnapifacation image"></div>
                 <div class="card-info">
-                  <div class="card-title">Qazacatism</div>
-                  <div class="card-meta">Card Game • 7 min</div>
+                  <div class="card-title">Ensnapifacation</div>
+                  <div class="card-meta">Card Game • Recommended</div>
                 </div>
               </div>
             </a>
 
-            <a class="card-link" href="#game-ensnapifacation" title="Ensnapifacation — details">
-              <div class="card card-a">
-                <div class="card-art" style="background-image:linear-gradient(135deg,#5c6bc0,#3f51b5)"></div>
+            <!-- Qazacatism card uses resources/qazacatism-cover.png as requested -->
+            <a class="card-link" href="#game-qazacatism" title="Qazacatism — details">
+              <div class="card card-c" role="group" aria-label="Qazacatism card">
+                <div class="card-art" style="background-image:url('resources/qazacatism-cover.png');background-size:cover;background-position:center" role="img" aria-label="Qazacatism image"></div>
                 <div class="card-info">
-                  <div class="card-title">Ensnapifacation</div>
-                  <div class="card-meta">Card Game • Recommended</div>
+                  <div class="card-title">Qazacatism</div>
+                  <div class="card-meta">Card Game • 7 min</div>
                 </div>
               </div>
             </a>
@@ -270,7 +268,7 @@
           <!-- tiles also link to details -->
           <a class="card-link" href="#game-ensnapifacation">
             <article class="tile" tabindex="0">
-              <div class="tile-art" style="background-image:linear-gradient(180deg,#ff9a9e,#fecfef)"></div>
+              <div class="tile-art" style="background-image:url('resources/Back.png');background-size:cover;background-position:center"></div>
               <h3>Ensnapifacation</h3>
               <p class="tile-meta">Card game • 15min</p>
             </article>
@@ -278,7 +276,7 @@
 
           <a class="card-link" href="#game-qazacatism">
             <article class="tile" tabindex="0">
-              <div class="tile-art" style="background-image:linear-gradient(180deg,#a0c4ff,#bdb2ff)"></div>
+              <div class="tile-art" style="background-image:url('resources/qazacatism-cover.png');background-size:cover;background-position:center"></div>
               <h3>Qazacatism</h3>
               <p class="tile-meta">Card Game • 7min</p>
             </article>
@@ -343,30 +341,16 @@
       </div>
     </section>
 
-    <!-- Contact section (keeps a bright blue background) -->
+    <!-- Contact section (replaced form with a single link button to your Google Form) -->
     <section id="contact" class="section-lower bg-blue" aria-labelledby="contact-heading">
       <div class="container">
         <h2 id="contact-heading">Get in touch</h2>
         <p>Wondering about something, asking about a game, or just saying hi? Email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></p>
 
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <label>
-            <span class="sr-only">Name</span>
-            <input name="name" type="text" placeholder="Your name" required />
-          </label>
-          <label>
-            <span class="sr-only">Email</span>
-            <input name="email" type="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            <span class="sr-only">Message</span>
-            <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
-          </label>
-          <div style="display:flex;gap:.6rem;align-items:center;">
-            <button class="btn primary" type="submit">Send message</button>
-            <small class="muted">Or email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></small>
-          </div>
-        </form>
+        <!-- Simple link button to Google Form as requested -->
+        <p style="margin-top:1rem;">
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLScyiXBzhZaaw4fFN_U7o15FVv-h3ppfI_H6693ZOipNPSxM8A/viewform?usp=header" target="_blank" rel="noopener">Open the contact form</a>
+        </p>
       </div>
     </section>
   </main>
