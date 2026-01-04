@@ -1,375 +1,314 @@
-<!DOCTYPE html>
-<html>
-
+<!doctype html>
+<html lang="en">
 <head>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>index</title>
-
-
-<style type="text/css">
-body {
-  font-family: Helvetica, arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.6;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: blue;
-  padding: 30px; }
-
-body > *:first-child {
-  margin-top: 0 !important; }
-body > *:last-child {
-  margin-bottom: 0 !important; }
-
-a {
-  color: #4183C4; }
-a.absent {
-  color: #cc0000; }
-a.anchor {
-  display: block;
-  padding-left: 30px;
-  margin-left: -30px;
-  cursor: pointer;
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0; }
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 20px 0 10px;
-  padding: 0;
-  font-weight: light;
-  -webkit-font-smoothing: antialiased;
-  cursor: text;
-  position: relative; }
-
-h1:hover a.anchor, h2:hover a.anchor, h3:hover a.anchor, h4:hover a.anchor, h5:hover a.anchor, h6:hover a.anchor {
-  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA09pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoMTMuMCAyMDEyMDMwNS5tLjQxNSAyMDEyLzAzLzA1OjIxOjAwOjAwKSAgKE1hY2ludG9zaCkiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OUM2NjlDQjI4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OUM2NjlDQjM4ODBGMTFFMTg1ODlEODNERDJBRjUwQTQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo5QzY2OUNCMDg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo5QzY2OUNCMTg4MEYxMUUxODU4OUQ4M0REMkFGNTBBNCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PsQhXeAAAABfSURBVHjaYvz//z8DJYCRUgMYQAbAMBQIAvEqkBQWXI6sHqwHiwG70TTBxGaiWwjCTGgOUgJiF1J8wMRAIUA34B4Q76HUBelAfJYSA0CuMIEaRP8wGIkGMA54bgQIMACAmkXJi0hKJQAAAABJRU5ErkJggg==) no-repeat 10px center;
-  text-decoration: none; }
-
-h1 tt, h1 code {
-  font-size: inherit; }
-
-h2 tt, h2 code {
-  font-size: inherit; }
-
-h3 tt, h3 code {
-  font-size: inherit; }
-
-h4 tt, h4 code {
-  font-size: inherit; }
-
-h5 tt, h5 code {
-  font-size: inherit; }
-
-h6 tt, h6 code {
-  font-size: inherit; }
-
-h1 {
-  font-size: 28px;
-  color: black; }
-
-h2 {
-  font-size: 24px;
-  border-bottom: 1px solid #cccccc;
-  color: black; }
-
-h3 {
-  font-size: 18px; }
-
-h4 {
-  font-size: 16px; }
-
-h5 {
-  font-size: 14px; }
-
-h6 {
-  color: #0000FF;
-  font-size: 14px; }
-
-p, blockquote, ul, ol, dl, li, table, pre {
-  margin: 15px 0; }
-
-hr {
-  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC) repeat-x 0 0;
-  border: 0 none;
-  color: #0000FF;
-  height: 4px;
-  padding: 0;
-}
-
-body > h2:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-body > h1:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-  body > h1:first-child + h2 {
-    margin-top: 0;
-    padding-top: 0; }
-body > h3:first-child, body > h4:first-child, body > h5:first-child, body > h6:first-child {
-  margin-top: 0;
-  padding-top: 0; }
-
-a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
-  margin-top: 0;
-  padding-top: 0; }
-
-h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
-  margin-top: 0; }
-
-li p.first {
-  display: inline-block; }
-li {
-  margin: 0; }
-ul, ol {
-  padding-left: 30px; }
-
-ul :first-child, ol :first-child {
-  margin-top: 0; }
-
-dl {
-  padding: 0; }
-  dl dt {
-    font-size: 14px;
-    font-weight: bold;
-    font-style: italic;
-    padding: 0;
-    margin: 15px 0 5px; }
-    dl dt:first-child {
-      padding: 0; }
-    dl dt > :first-child {
-      margin-top: 0; }
-    dl dt > :last-child {
-      margin-bottom: 0; }
-  dl dd {
-    margin: 0 0 15px;
-    padding: 0 15px; }
-    dl dd > :first-child {
-      margin-top: 0; }
-    dl dd > :last-child {
-      margin-bottom: 0; }
-
-blockquote {
-  border-left: 4px solid #dddddd;
-  padding: 0 15px;
-  color: #0000FF; }
-  blockquote > :first-child {
-    margin-top: 0; }
-  blockquote > :last-child {
-    margin-bottom: 0; }
-
-table {
-  padding: 0;border-collapse: collapse; }
-  table tr {
-    border-top: 1px solid #cccccc;
-    background-color: blue;
-    margin: 0;
-    padding: 0; }
-    table tr:nth-child(2n) {
-      background-color: #0000FF; }
-    table tr th {
-      font-weight: bold;
-      border: 1px solid #cccccc;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr td {
-      border: 1px solid #cccccc;
-      margin: 0;
-      padding: 6px 13px; }
-    table tr th :first-child, table tr td :first-child {
-      margin-top: 0; }
-    table tr th :last-child, table tr td :last-child {
-      margin-bottom: 0; }
-
-img {
-  max-width: 100%; }
-
-span.frame {
-  display: block;
-  overflow: hidden; }
-  span.frame > span {
-    border: 1px solid #dddddd;
-    display: block;
-    float: left;
-    overflow: hidden;
-    margin: 13px 0 0;
-    padding: 7px;
-    width: auto; }
-  span.frame span img {
-    display: block;
-    float: left; }
-  span.frame span span {
-    clear: both;
-    color: #0000FF;
-    display: block;
-    padding: 5px 0 0; }
-span.align-center {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-center > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: center; }
-  span.align-center span img {
-    margin: 0 auto;
-    text-align: center; }
-span.align-right {
-  display: block;
-  overflow: hidden;
-  clear: both; }
-  span.align-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px 0 0;
-    text-align: right; }
-  span.align-right span img {
-    margin: 0;
-    text-align: right; }
-span.float-left {
-  display: block;
-  margin-right: 13px;
-  overflow: hidden;
-  float: left; }
-  span.float-left span {
-    margin: 13px 0 0; }
-span.float-right {
-  display: block;
-  margin-left: 13px;
-  overflow: hidden;
-  float: right; }
-  span.float-right > span {
-    display: block;
-    overflow: hidden;
-    margin: 13px auto 0;
-    text-align: right; }
-
-code, tt {
-  margin: 0 2px;
-  padding: 0 5px;
-  white-space: nowrap;
-  border: 1px solid #eaeaea;
-  background-color: #0000FF;
-  border-radius: 3px; }
-
-pre code {
-  margin: 0;
-  padding: 0;
-  white-space: pre;
-  border: none;
-  background: blue; }
-
-.highlight pre {
-  background-color: #f8f8f8;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-
-pre {
-  background-color: #0000FF;
-  border: 1px solid #cccccc;
-  font-size: 13px;
-  line-height: 19px;
-  overflow: auto;
-  padding: 6px 10px;
-  border-radius: 3px; }
-  pre code, pre tt {
-    background-color: transparent;
-    border: none; }
-
-sup {
-    font-size: 0.83em;
-    vertical-align: super;
-    line-height: 0;
-}
-
-kbd {
-  display: inline-block;
-  padding: 3px 5px;
-  font-size: 11px;
-  line-height: 10px;
-  color: #555;
-  vertical-align: middle;
-  background-color: #0000FF;
-  border: solid 1px #ccc;
-  border-bottom-color: #bbb;
-  border-radius: 3px;
-  box-shadow: inset 0 -1px 0 #bbb
-}
-
-* {
-	-webkit-print-color-adjust: exact;
-}
-@media screen and (min-width: 914px) {
-    body {
-        width: 854px;
-        margin:0 auto;
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Swipee-like Demo — YourBrand</title>
+  <meta name="description" content="Play. Swipe. Win. — demo landing page" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg: #071122;
+      --card-bg: rgba(255,255,255,0.02);
+      --accent: #00e5c4;
+      --muted: #8ea0b6;
+      --container: min(1150px, 94%);
+      --glass: rgba(255,255,255,0.03);
+      font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: dark;
+      color: #e8f0ff;
     }
-}
-@media print {
-	table, pre {
-		page-break-inside: avoid;
-	}
-	pre {
-		word-wrap: break-word;
-	}
-  body {
-    padding: 2cm; 
-  }
-}
-</style>
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#05121b 0%,var(--bg) 100%);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    .container{max-width:var(--container);margin:0 auto;padding:1rem}
+    a{color:inherit}
+    .site-header{position:sticky;top:0;background:linear-gradient(180deg,rgba(5,7,10,0.6),transparent);backdrop-filter: blur(6px);z-index:40;border-bottom:1px solid rgba(255,255,255,0.02)}
+    .header-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+    .logo{font-weight:800;letter-spacing:0.6px;font-size:1.05rem;text-decoration:none}
+    .main-nav a{margin-left:1rem;color:var(--muted);text-decoration:none;font-size:.95rem}
 
+    /* HERO */
+    .hero{min-height:78vh;display:flex;align-items:center}
+    .hero-inner{display:flex;gap:2.5rem;align-items:center}
+    .hero-left{flex:1;max-width:620px}
+    .hero-title{font-size:3.2rem;line-height:1.02;margin:0;color:white;font-weight:800}
+    .hero-sub{color:var(--muted);margin-top:1rem;font-size:1.05rem}
+    .ctas{margin-top:1.5rem;display:flex;gap:.75rem;align-items:center}
+    .btn{padding:.75rem 1.2rem;border-radius:12px;text-decoration:none;font-weight:700;border:0;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#022326;box-shadow:0 12px 30px rgba(0,229,196,0.12)}
+    .btn.ghost{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.04)}
+    .kpis{display:flex;gap:1.25rem;margin-top:1.5rem;list-style:none;padding:0;color:var(--muted)}
+    .kpis li{font-weight:600}
 
+    /* CARDS */
+    .hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative}
+    .cards{width:360px;height:480px;position:relative;perspective:1400px}
+    .card{position:absolute;left:0;right:0;margin:auto;width:290px;height:170px;border-radius:18px;background:var(--card-bg);backdrop-filter: blur(6px);box-shadow: 0 22px 50px rgba(2,6,14,0.6);display:flex;overflow:hidden;flex-direction:row;align-items:stretch}
+    .card-art{width:45%;min-width:120px;background-size:cover;background-position:center}
+    .card-info{padding:1rem;display:flex;flex-direction:column;justify-content:center}
+    .card-title{font-weight:700;font-size:1.05rem}
+    .card-meta{font-size:.82rem;color:var(--muted);margin-top:.45rem}
+
+    /* stacking positions */
+    .card-a{transform:translateY(-50px) rotateZ(-6deg) scale(1.03);z-index:4}
+    .card-b{transform:translateY(5px) rotateZ(2deg) scale(.99);z-index:3}
+    .card-c{transform:translateY(70px) rotateZ(6deg) scale(.96);z-index:2}
+
+    .bg-shape{position:absolute;inset:0;pointer-events:none;opacity:.85;transform:translateY(22%);z-index:1}
+
+    /* LOWER SECTIONS */
+    .section-lower{padding:4.5rem 0;border-top:1px solid rgba(255,255,255,0.02)}
+    .section-lead{color:var(--muted);margin-top:.5rem}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.5rem}
+    .tile{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1rem;border-radius:12px;box-shadow:0 12px 30px rgba(1,7,12,0.6);overflow:hidden}
+    .tile-art{height:110px;border-radius:8px;margin-bottom:.75rem;background-size:cover;background-position:center}
+    .tile h3{margin:.2rem 0 .35rem}
+    .tile-meta{font-size:.85rem;color:var(--muted)}
+
+    /* features */
+    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
+    .feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:1.15rem;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.45)}
+    .feature h4{margin:0 0 .4rem}
+
+    /* contact form */
+    .contact-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-top:1rem}
+    .contact-form input,.contact-form textarea{width:100%;padding:.8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+    .muted{color:var(--muted);font-size:.9rem}
+
+    /* footer */
+    .site-footer{border-top:1px solid rgba(255,255,255,0.02);padding:1rem 0;margin-top:2rem}
+    .footer-inner{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:.95rem}
+
+    /* utilities */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+    @media(max-width:980px){
+      .hero-inner{flex-direction:column-reverse;gap:2rem}
+      .cards{width:300px;height:360px}
+      .hero-title{font-size:2.2rem}
+      .hero{padding-top:2.2rem;padding-bottom:2.2rem}
+    }
+
+    @media(max-width:520px){
+      .cards{width:260px;height:320px}
+      .card{width:230px;height:150px}
+    }
+  </style>
 </head>
-
 <body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <a class="logo" href="#" aria-label="YourBrand home">YourBrand</a>
+      <nav class="main-nav" role="navigation" aria-label="Main navigation">
+        <a href="#intro">Home</a>
+        <a href="#games">Games</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<h1 id="toc_0">Qazacatism</h1>
+  <main>
+    <section id="intro" class="hero" aria-labelledby="hero-heading">
+      <div class="container hero-inner">
+        <div class="hero-left">
+          <h1 id="hero-heading" class="hero-title">Play. Swipe. Win.</h1>
+          <p class="hero-sub">Discover curated mobile games with short sessions and big fun. Fast to try. Easy to love.</p>
+          <div class="ctas">
+            <a class="btn primary" href="#games">Explore Games</a>
+            <a class="btn ghost" href="#contact">Get in touch</a>
+          </div>
+          <ul class="kpis" aria-hidden="true">
+            <li><strong>500+</strong> games</li>
+            <li><strong>Instant</strong> play</li>
+            <li><strong>4.8</strong> avg rating</li>
+          </ul>
+        </div>
 
-<p>This is a card game made by Ben</p>
+        <div class="hero-right" aria-hidden="true">
+          <div class="cards" id="cards">
+            <div class="card card-c">
+              <div class="card-art" style="background-image:linear-gradient(135deg,#ff8a80,#ff80ab)"></div>
+              <div class="card-info">
+                <div class="card-title">Neon Runner</div>
+                <div class="card-meta">Arcade • 2 min</div>
+              </div>
+            </div>
 
-<p>I am a kid that want to make the world a better place and the best way I can think to do that (while having fun) is a card game company, and that company happens to be called Coogee Cards</p>
+            <div class="card card-b">
+              <div class="card-art" style="background-image:linear-gradient(135deg,#81c784,#66bb6a)"></div>
+              <div class="card-info">
+                <div class="card-title">Block Twist</div>
+                <div class="card-meta">Puzzle • New</div>
+              </div>
+            </div>
 
-<p>So I decided to make a card game called Qazacatism where the objective is to get the Super Qaz and the Super fish together and then the Super Qaz eats the Super Fish and goes into Super SUPER Qaz mode and destroys all of the other players. There are other cards that effect the game like the Cat and the Rat played together will let you discard cards that you don't want and many others<p>
-	
-<p>I am also currently making more card games for everyone to play and like</p>
+            <div class="card card-a">
+              <div class="card-art" style="background-image:linear-gradient(135deg,#5c6bc0,#3f51b5)"></div>
+              <div class="card-info">
+                <div class="card-title">Sky Blades</div>
+                <div class="card-meta">RPG • Hot</div>
+              </div>
+            </div>
 
+            <svg class="bg-shape" viewBox="0 0 600 600" preserveAspectRatio="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1">
+                  <stop offset="0" stop-color="#0ff2d0" stop-opacity="0.08"></stop>
+                  <stop offset="1" stop-color="#00aaff" stop-opacity="0.06"></stop>
+                </linearGradient>
+              </defs>
+              <path d="M0,100 C150,200 450,0 600,100 L600,600 L0,600 Z" fill="url(#g1)"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<p>I hope you ENJOY!</p>
+    <section id="games" class="section-lower" aria-labelledby="games-heading">
+      <div class="container">
+        <h2 id="games-heading">Featured games</h2>
+        <p class="section-lead">A quick selection of short session games — tap, swipe, repeat.</p>
 
+        <div class="grid">
+          <article class="tile" tabindex="0">
+            <div class="tile-art" style="background-image:linear-gradient(180deg,#ff9a9e,#fecfef)"></div>
+            <h3>Turbo Dash</h3>
+            <p class="tile-meta">Arcade • 90s</p>
+          </article>
 
+          <article class="tile" tabindex="0">
+            <div class="tile-art" style="background-image:linear-gradient(180deg,#a0c4ff,#bdb2ff)"></div>
+            <h3>Puzzle Loop</h3>
+            <p class="tile-meta">Puzzle • New</p>
+          </article>
 
+          <article class="tile" tabindex="0">
+            <div class="tile-art" style="background-image:linear-gradient(180deg,#b9f6ca,#69f0ae)"></div>
+            <h3>Castle Sprint</h3>
+            <p class="tile-meta">Platformer • 3 min</p>
+          </article>
+        </div>
+      </div>
+    </section>
 
+    <section id="features" class="section-lower" aria-labelledby="features-heading">
+      <div class="container">
+        <h2 id="features-heading">Why players love it</h2>
+        <div class="features-grid">
+          <div class="feature">
+            <h4>Micro sessions</h4>
+            <p>Games that respect your time — play a round in under 3 minutes.</p>
+          </div>
+          <div class="feature">
+            <h4>Curated library</h4>
+            <p>Hand-picked titles that focus on fun and polish.</p>
+          </div>
+          <div class="feature">
+            <h4>Instant play</h4>
+            <p>Start immediately — no long downloads required for demos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <section id="contact" class="section-lower" aria-labelledby="contact-heading">
+      <div class="container">
+        <h2 id="contact-heading">Get in touch</h2>
+        <p>Interested in partnering, submitting a game, or just saying hi? Email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></p>
 
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
+          <label>
+            <span class="sr-only">Name</span>
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            <span class="sr-only">Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            <span class="sr-only">Message</span>
+            <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
+          </label>
+          <div style="display:flex;gap:.6rem;align-items:center;">
+            <button class="btn primary" type="submit">Send message</button>
+            <small class="muted">Or email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></small>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
 
+  <footer class="site-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <small>© <span id="year"></span> YourBrand — Built with care</small>
+      <div class="social">
+        <a href="#" aria-label="Twitter">T</a>
+        <a href="#" aria-label="GitHub">G</a>
+      </div>
+    </div>
+  </footer>
 
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script>
+    // small helper
+    document.getElementById('year').textContent = new Date().getFullYear();
 
+    // Wait for fonts & layout to settle
+    (function(){
+      if (typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
 
+      // Entrance timeline
+      const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+      tl.from(".hero-title", { y: 28, opacity: 0, duration: 0.8 })
+        .from(".hero-sub", { y: 18, opacity: 0, duration: 0.6 }, "-=0.45")
+        .from(".ctas .btn", { y: 14, opacity: 0, stagger: 0.08, duration: 0.45 }, "-=0.45")
+        .from(".kpis li", { y: 10, opacity: 0, stagger: 0.06, duration: 0.35 }, "-=0.35")
+        .from(".card-a", { x: 140, opacity: 0, rotation: -12, duration: 0.75 }, "-=0.6")
+        .from(".card-b", { x: 170, opacity: 0, rotation: 6, duration: 0.75 }, "-=0.7")
+        .from(".card-c", { x: 210, opacity: 0, rotation: 10, duration: 0.8 }, "-=0.85");
 
+      // floating loop
+      gsap.to(".card-a", { y: -6, rotation: -3, duration: 2.6, yoyo: true, repeat: -1, ease: "sine.inOut" });
+      gsap.to(".card-b", { y: -8, rotation: 4, duration: 2.3, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 0.18 });
+      gsap.to(".card-c", { y: -12, rotation: 2, duration: 2.7, yoyo: true, repeat: -1, ease: "sine.inOut", delay: 0.36 });
 
+      // parallax hero-right
+      gsap.to(".hero-right", {
+        y: -48,
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true
+        }
+      });
 
+      // reveal tiles/features
+      gsap.utils.toArray(".tile, .feature").forEach((el) => {
+        gsap.from(el, {
+          scrollTrigger: {
+            trigger: el,
+            start: "top 85%",
+          },
+          y: 28,
+          opacity: 0,
+          duration: 0.7,
+          ease: "power2.out",
+          delay: Math.random() * 0.12
+        });
+      });
 
-
-
-
-
-	
-
-<p>Here is a picture of my cardgame</p>
-
-<p><img src="file:///Users/bmorr2031/Desktop/Qazacatism.png" alt="card-game"></p>
-
-
-
-
+      // keyboard focus outline helper
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Tab") document.body.classList.add("show-focus");
+      });
+    })();
+  </script>
 </body>
-
 </html>
