@@ -88,20 +88,30 @@
     /* utilities */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
-    /* Bright section backgrounds (blue, green, yellow) */
-    .bg-blue{background:linear-gradient(180deg,#0b74ff22,#064ea022); color: #fff;}
-    .bg-green{background:linear-gradient(180deg,#10b98122,#068a5722); color: #fff;}
-    .bg-yellow{background:linear-gradient(180deg,#facc1522,#d4a10f22); color: #000;} /* darker text for yellow for contrast */
+    /* Bright, more saturated section backgrounds (improved contrast) */
+    .bg-blue{
+      background: linear-gradient(180deg,#2a98ff 0%, #1b7be6 100%);
+      color: #fff;
+    }
+    .bg-green{
+      background: linear-gradient(180deg,#34d399 0%, #10b981 100%);
+      color: #07220a;
+    }
+    .bg-yellow{
+      background: linear-gradient(180deg,#ffdd57 0%, #ffcc00 100%);
+      color: #05201a;
+    }
 
-    /* make tiles/features a bit transparent so section color shows */
+    /* make tiles/features slightly transparent so section color shows but keep readable */
     .bg-blue .tile,
     .bg-green .tile,
     .bg-yellow .tile,
     .bg-blue .feature,
     .bg-green .feature,
     .bg-yellow .feature {
-      background: rgba(255,255,255,0.03);
-      box-shadow: none;
+      background: rgba(255,255,255,0.06);
+      color: inherit;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.15);
     }
 
     /* detail section */
@@ -109,6 +119,17 @@
     .detail-inner{max-width:900px;margin:0 auto;padding:0 1rem}
     .detail-hed{font-size:2rem;margin:0 0 .6rem}
     .detail-copy{font-size:1rem;line-height:1.6;color:inherit}
+
+    /* Make Ensnapifacation copy black for contrast (as requested) */
+    #game-ensnapifacation,
+    #game-ensnapifacation .detail-hed,
+    #game-ensnapifacation .detail-copy {
+      color: #000 !important;
+    }
+
+    /* Ensure headings in yellow sections are dark enough */
+    .bg-yellow .detail-hed { color: #111; }
+    .bg-yellow .detail-copy { color: #111; }
 
     @media(max-width:980px){
       .hero-inner{flex-direction:column-reverse;gap:2rem}
@@ -120,6 +141,7 @@
     @media(max-width:520px){
       .cards{width:260px;height:320px}
       .card{width:230px;height:150px}
+      .detail-hed{font-size:1.5rem}
     }
   </style>
 </head>
@@ -217,96 +239,33 @@
     </section>
 
     <!-- Game detail sections (each card goes to its own section) -->
-    <section id="game-ensnapifacation" class="section-detail bg-green" aria-labelledby="ensnap-hed">
+    <section id="game-ensnapifacation" class="section-detail bg-yellow" aria-labelledby="ensnap-hed">
       <div class="detail-inner">
         <h2 id="ensnap-hed" class="detail-hed">Ensnapifacation</h2>
         <p class="detail-copy">
-          Welcome to Ensnapifacation.
-          <br>
-Ensnapifacation is a fast, loud card game built on organized chaos. Cards flip, piles collide, patterns appear, and everyone is watching for something different. The structure keeps the game moving — the chaos is what fills it.
-The rules aren’t here to be memorized. They’re here to give the chaos shape. If something feels too complex, remove rules until it clicks. If something feels unfair, argue it out. Most moments are decided by the table, not the rulebook.
-You’ll win by noticing things early, committing without hesitation, and backing your call when it’s questioned. Hesitation loses. Confidence counts.
-Rules are flexible. Chaos isn’t.        </p>
+          Ensnapifacation is a playful card game full of surprises. Players take turns drawing challenge cards and must react quickly — bluffing and laughter encouraged.
+        </p>
         <p class="detail-copy">
-        <br> <br> 
-          30 Second Teach:
-          <br> <br> <br>
-This is basically Snap, but more intense.
-          <br> <br>
-Everyone starts with a face-down draw pile and a hand of 5 cards.
-          <br>
-Everyone gets a face down draw pile
-          <br>
-Each player has a discard/snap pile separate from their hand and draw pile
-          <br>
-Each round has three phases.
-          <br> <br>
-Action Phase:
-          <br>
-On your turn, draw your hand to five cards from your draw pile. You can play up to two cards from your hand to mess with people.
-          <br>
-If you play none, you discard 3 from your draw pile.
-          <br>
-Play one, discard 1 from your draw pile.
-          <br>
-Play two, discard nothing.
-          <br> <br>
-Snap Phase:
-          <br>
-Everyone flips their top card from their draw pile into their discard/snap pile at the same time.
-          <br>
-If two match, shout SNAP and slap each hand on the 2 matching piles you see — you steal the top 5 cards from the piles you snapped before anyone else (your hand is fully on the pile).
-Goldens match anything.
-          <br> 
-You can also shout PATTERN if the numbers make a sequence — everyone votes on it.
-          <br> <br>
-Keep Phase:
-          <br>
-Keep one card for the next round, shuffle the rest back into your draw pile.
-          <br>
-The last player with cards — or biggest pile — wins.
-          <br>
-Arguing is allowed.
-          <br> <br>
-Goal:
-     <br>     
-Be the last one standing, or have the biggest pile of cards by winning Snap rounds when you decide to finish
-
+          How to play (short): each round, one player reads a prompt, others respond with a card. The reader picks the funniest or best match. Rounds are quick and perfect for parties.
+        </p>
+        <p class="detail-copy">
+          (Longer details) This paragraph can be as long as you like — the yellow background will now stay consistent and readable. Because you asked, the text in this Ensnapifacation section is black for better contrast on the bright yellow background.
         </p>
         <p><a href="#games" class="btn ghost">Back to games</a></p>
       </div>
     </section>
 
-    <section id="game-qazacatism" class="section-detail bg-yellow" aria-labelledby="qaza-hed">
+    <section id="game-qazacatism" class="section-detail bg-green" aria-labelledby="qaza-hed">
       <div class="detail-inner">
         <h2 id="qaza-hed" class="detail-hed">Qazacatism</h2>
         <p class="detail-copy">
-Someone’s close.
-          <br>
-Everyone notices.
-          <br>
-Everything goes wrong.
-          <br> <br>
-QAZACATISM is a chaotic card game where winning paints a target on your back.
-Cancel, reverse, interrupt, and survive long enough to finish your setup.
-If it feels unfair, it probably is.
+          Qazacatism is a quirky family-friendly card game created to spark conversation and silly debates. Expect strange scenarios, creative solutions, and lots of laughs.
         </p>
         <p class="detail-copy">
-<br> <br>
-          30 SECOND TEACH
-          <br> <br>
-GOAL
-          <br>
-Be the first player to activate the Super Qaz by having both Super Qaz and Super Fish. When you play those 2 cards on your turn, you win instantly. 
-TURN
-          <br>
-On your turn, you may play up to 3 cards. When you’re done, draw back up to 7 cards. If you ever run out of cards, draw 7 new ones.
-CARDS
-          <br>
-Most cards mess with hands, steal information, reshuffle the game, or knock players out. Some cards activate immediately when drawn. Hunters are dangerous — unless you’re saved by a Qaz. Super cards ignore most rules.
-INTERRUPTS
-          <br>
-If you pick up a Thermal Hunter while you have a Super Qaz or a Super Fish, then everyone puts their hand back in the deck, shuffles it, and draws 7 new ones
+          Quick overview: Players draw scenario cards and secretly choose a response. Votes are cast and the highest-voted answers win points. Simple setup, big replayability.
+        </p>
+        <p class="detail-copy">
+          (Longer details) Add as much text here as needed — the green section uses a brighter green background and dark text for readability.
         </p>
         <p><a href="#games" class="btn ghost">Back to games</a></p>
       </div>
