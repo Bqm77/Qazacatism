@@ -349,9 +349,22 @@
         <h2 id="contact-heading">Get in touch</h2>
         <p>Wondering about something, asking about a game, or just saying hi? Email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></p>
 
-        <form class="contact-form" action="https://forms.gle/3Fyg7izcc3XEURjh6" method="POST">
+        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
           <label>
-            
+            <span class="sr-only">Name</span>
+            <input name="name" type="text" placeholder="Your name" required />
+          </label>
+          <label>
+            <span class="sr-only">Email</span>
+            <input name="email" type="email" placeholder="you@example.com" required />
+          </label>
+          <label>
+            <span class="sr-only">Message</span>
+            <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
+          </label>
+          <div style="display:flex;gap:.6rem;align-items:center;">
+            <button class="btn primary" type="submit">Send message</button>
+            <small class="muted">Or email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></small>
           </div>
         </form>
       </div>
