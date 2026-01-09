@@ -1,13 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- This head block sets the page title, description, fonts and includes the page CSS.
+       (Simple: tells the browser about the page and loads the font.) -->
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Cardists</title>
-  <meta name="description" content="Cardists. — demo landing page" />
+  <meta name="description" content="Cardists" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
+    /* This CSS block sets colors, fonts and layout for the whole site.
+       (Simple: controls how everything looks and responds.) */
+
     :root{
       --bg: #071122;
       --card-bg: rgba(255,255,255,0.02);
@@ -19,6 +24,7 @@
       color-scheme: dark;
       color: #e8f0ff;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;background:linear-gradient(180deg,#05121b 0%,var(--bg) 100%);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
     .container{max-width:var(--container);margin:0 auto;padding:1rem}
@@ -28,7 +34,7 @@
     .logo{font-weight:800;letter-spacing:0.6px;font-size:1.05rem;text-decoration:none}
     .main-nav a{margin-left:1rem;color:var(--muted);text-decoration:none;font-size:.95rem}
 
-    /* HERO */
+    /* HERO (the Home section) - layout & typography */
     .hero{min-height:78vh;display:flex;align-items:center}
     .hero-inner{display:flex;gap:2.5rem;align-items:center}
     .hero-left{flex:1;max-width:620px}
@@ -41,9 +47,10 @@
     .kpis{display:flex;gap:1.25rem;margin-top:1.5rem;list-style:none;padding:0;color:var(--muted)}
     .kpis li{font-weight:600}
 
-    /* CARDS */
+    /* CARDS - stacked game cards in the hero */
     .hero-right{flex:1;display:flex;justify-content:center;align-items:center;position:relative}
     .cards{width:360px;height:480px;position:relative;perspective:1400px}
+    .card-link{display:block;color:inherit;text-decoration:none;cursor:pointer}
     .card{position:absolute;left:0;right:0;margin:auto;width:290px;height:170px;border-radius:18px;background:var(--card-bg);backdrop-filter: blur(6px);box-shadow: 0 22px 50px rgba(2,6,14,0.6);display:flex;overflow:hidden;flex-direction:row;align-items:stretch}
     .card-art{width:45%;min-width:120px;background-size:cover;background-position:center}
     .card-info{padding:1rem;display:flex;flex-direction:column;justify-content:center}
@@ -57,21 +64,21 @@
 
     .bg-shape{position:absolute;inset:0;pointer-events:none;opacity:.85;transform:translateY(22%);z-index:1}
 
-    /* LOWER SECTIONS */
+    /* LOWER SECTIONS - general spacing and grid */
     .section-lower{padding:4.5rem 0;border-top:1px solid rgba(255,255,255,0.02)}
     .section-lead{color:var(--muted);margin-top:.5rem}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.1rem;margin-top:1.5rem}
     .tile{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:1rem;border-radius:12px;box-shadow:0 12px 30px rgba(1,7,12,0.6);overflow:hidden}
-    .tile-art{height:110px;border-radius:8px;margin-bottom:.75rem;background-size:cover;background-position:center}
+    .tile-art{height:700px;border-radius:8px;margin-bottom:.75rem;background-size:cover;background-position:center}
     .tile h3{margin:.2rem 0 .35rem}
     .tile-meta{font-size:.85rem;color:var(--muted)}
 
-    /* features */
+    /* features (cards that explain why you like the games) */
     .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem}
     .feature{background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent);padding:1.15rem;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,0.45)}
     .feature h4{margin:0 0 .4rem}
 
-    /* contact form */
+    /* contact form styles */
     .contact-form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:.75rem;margin-top:1rem}
     .contact-form input,.contact-form textarea{width:100%;padding:.8rem;border-radius:10px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
     .muted{color:var(--muted);font-size:.9rem}
@@ -83,6 +90,86 @@
     /* utilities */
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
+    /* --------------------------
+       Bright section colors
+       --------------------------
+       These define the bright backgrounds used on some sections.
+       (Simple: make the section backgrounds bright so the text is easy to read.)
+    */
+    .bg-green{
+      /* bright green background for Home (intro) as requested */
+      background: linear-gradient(180deg,#8ef0a0 0%, #34d399 100%);
+      color: #000; /* make text black in green section */
+    }
+
+    .bg-dark{
+      /* dark background used for Features after swapping */
+      background: linear-gradient(180deg,#05121b 0%, #071122 100%);
+      color: #e8f0ff; /* white-ish text on dark background */
+    }
+
+    .bg-blue{
+      /* brighter blue for Games / Contact if used */
+      background: linear-gradient(180deg,#7ec8ff 0%, #2a98ff 100%);
+      color: #000; /* black text on bright blue */
+    }
+
+    .bg-yellow{
+      background: linear-gradient(180deg,#fffb8f 0%, #ffdd57 100%);
+      color: #000;
+    }
+
+    /* make tiles/features slightly translucent so section color shows but keep readable */
+    .bg-blue .tile,
+    .bg-green .tile,
+    .bg-yellow .tile,
+    .bg-blue .feature,
+    .bg-green .feature,
+    .bg-yellow .feature {
+      background: rgba(255,255,255,0.08);
+      color: inherit;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+
+    /* detail section (per-card detail pages on the same page) */
+    .section-detail{padding:5rem 0 3rem;border-top:1px solid rgba(255,255,255,0.02)}
+    .detail-inner{max-width:900px;margin:0 auto;padding:0 1rem}
+    .detail-hed{font-size:2rem;margin:0 0 .6rem}
+    .detail-copy{font-size:1rem;line-height:1.6;color:inherit}
+
+    /* Keep Ensnapifacation text black as you asked previously */
+    #game-ensnapifacation,
+    #game-ensnapifacation .detail-hed,
+    #game-ensnapifacation .detail-copy {
+      color: #000 !important;
+    }
+
+    /* --------------------------
+       Section-specific text color rules
+       -------------------------- */
+    /* Make all text in the Games section black for readability */
+    #games,
+    #games .section-lead,
+    #games .tile,
+    #games .tile h3,
+    #games .tile-meta {
+      color: #000 !important;
+    }
+
+    /* Force hero elements to show black text inside bg-green (Home) */
+    .bg-green .hero-title { color: #000 !important; }
+    .bg-green .hero-sub   { color: #0b2b13 !important; } /* darker greenish text */
+    .bg-green .kpis        { color: #0b2b13 !important; }
+    .bg-green .kpis li     { color: #0b2b13 !important; }
+
+    /* Ensure features section uses the dark theme (white text) */
+    .bg-dark .feature,
+    .bg-dark .feature h4,
+    .bg-dark .detail-copy,
+    .bg-dark .detail-hed {
+      color: #e8f0ff;
+    }
+
     @media(max-width:980px){
       .hero-inner{flex-direction:column-reverse;gap:2rem}
       .cards{width:300px;height:360px}
@@ -93,13 +180,16 @@
     @media(max-width:520px){
       .cards{width:260px;height:320px}
       .card{width:230px;height:150px}
+      .detail-hed{font-size:1.5rem}
     }
   </style>
 </head>
 <body>
+  <!-- This header block shows the top navigation and logo.
+       (Simple: site header with links to sections.) -->
   <header class="site-header" role="banner">
     <div class="container header-inner">
-      <a class="logo" href="#" aria-label="YourBrand home">Ben</a>
+      <a class="logo" href="#" aria-label="YourBrand home">Cardists</a>
       <nav class="main-nav" role="navigation" aria-label="Main navigation">
         <a href="#intro">Home</a>
         <a href="#games">Games</a>
@@ -110,11 +200,13 @@
   </header>
 
   <main>
-    <section id="intro" class="hero" aria-labelledby="hero-heading">
+    <!-- Intro / Home section
+         (Simple: main hero. I added the bright green background here and set text black.) -->
+    <section id="intro" class="hero bg-green" aria-labelledby="hero-heading">
       <div class="container hero-inner">
         <div class="hero-left">
           <h1 id="hero-heading" class="hero-title">CARDISTS</h1>
-          <p class="hero-sub">Discover home-made card games with big fun. Fast to try. Easy to love.</p>
+          <p class="hero-sub">Home-made card games that are easy to pick up and hard to put down.</p>
           <div class="ctas">
             <a class="btn primary" href="#games">Explore Games</a>
             <a class="btn ghost" href="#contact">Get in touch</a>
@@ -126,25 +218,30 @@
           </ul>
         </div>
 
+        <!-- Cards / clickable links -->
         <div class="hero-right" aria-hidden="true">
           <div class="cards" id="cards">
-            <!-- Replaced the placeholder gradient with your file path as requested.
-                 (Simple: this shows your 'Cardist logo.png' image in the hero card.) -->
-            <div class="card card-c">
-              <div class="card-art" style="background-image:url('Qazacatism/resources/Cardist logo.png');background-size:cover;background-position:center" role="img" aria-label="Qazacatism image"></div>
-              <div class="card-info">
-                <div class="card-title">Qazacatism</div>
-                <div class="card-meta">Card Game • 7 min</div>
+            <!-- Ensnapifacation card uses resources/Back.png as requested -->
+            <a class="card-link" href="#game-ensnapifacation" title="Ensnapifacation — details">
+              <div class="card card-a" role="group" aria-label="Ensnapifacation card">
+                <div class="card-art" style="background-image:url('resources/Back.png');background-size:cover;background-position:center" role="img" aria-label="Ensnapifacation image"></div>
+                <div class="card-info">
+                  <div class="card-title">Ensnapifacation</div>
+                  <div class="card-meta">Card Game • Recommended</div>
+                </div>
               </div>
-            </div>
+            </a>
 
-            <div class="card card-a">
-              <div class="card-art" style="background-image:url('Qazacatism/resources/Cardist logo.png');background-size:cover;background-position:center" role="img" aria-label="Ensnapifacation image"></div>
-              <div class="card-info">
-                <div class="card-title">Ensnapifacation</div>
-                <div class="card-meta">Card Game • Recommended</div>
+            <!-- Qazacatism card uses resources/qazacatism-cover.png as requested -->
+            <a class="card-link" href="#game-qazacatism" title="Qazacatism — details">
+              <div class="card card-c" role="group" aria-label="Qazacatism card">
+                <div class="card-art" style="background-image:url('resources/qazacatism-cover.png');background-size:cover;background-position:center" role="img" aria-label="Qazacatism image"></div>
+                <div class="card-info">
+                  <div class="card-title">Qazacatism</div>
+                  <div class="card-meta">Card Game • 7 min</div>
+                </div>
               </div>
-            </div>
+            </a>
 
             <svg class="bg-shape" viewBox="0 0 600 600" preserveAspectRatio="none" aria-hidden="true">
               <defs>
@@ -160,96 +257,127 @@
       </div>
     </section>
 
-    <section id="games" class="section-lower" aria-labelledby="games-heading">
+    <!-- Games section
+         (Simple: lists the playable games. Text here is forced to black for readability.) -->
+    <section id="games" class="section-lower bg-blue" aria-labelledby="games-heading">
       <div class="container">
         <h2 id="games-heading">Our games</h2>
         <p class="section-lead">A complete collection of our games... I know it's not much, but hopefully there will be more coming soon</p>
 
         <div class="grid">
-          <article class="tile" tabindex="0">
-            <!-- Replaced this tile image with your Cardist logo file path -->
-            <div class="tile-art" style="background-image:url('Qazacatism/resources/Cardist logo.png');background-size:cover;background-position:center"></div>
-            <h3>Ensnapifacation</h3>
-            <p class="tile-meta">Card game • 15min</p>
-          </article>
+          <!-- tiles also link to details -->
+          <a class="card-link" href="#game-ensnapifacation">
+            <article class="tile" tabindex="0">
+              <div class="tile-art" style="background-image:url('resources/Ensnapifacation.png');background-size:cover;background-position:center"></div>
+              <h3>Ensnapifacation</h3>
+              <p class="tile-meta">Card game • 15min</p>
+            </article>
+          </a>
 
-          <article class="tile" tabindex="0">
-            <div class="tile-art" style="background-image:url('Qazacatism/resources/Cardist logo.png');background-size:cover;background-position:center"></div>
-            <h3>Qazacatism</h3>
-            <p class="tile-meta">Card Game • 7min</p>
-          </article>
-
-         
+          <a class="card-link" href="#game-qazacatism">
+            <article class="tile" tabindex="0">
+              <div class="tile-art" style="background-image:url('resources/qazacatism-cover copy.png');background-size:cover;background-position:center"></div>
+              <h3>Qazacatism</h3>
+              <p class="tile-meta">Card Game • 7min</p>
+            </article>
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="features" class="section-lower" aria-labelledby="features-heading">
+    <!-- Game detail sections (each card goes to its own section)
+         (Simple: long-form details for each game on the same page.) -->
+    <section id="game-ensnapifacation" class="section-detail bg-yellow" aria-labelledby="ensnap-hed">
+      <div class="detail-inner">
+        <h2 id="ensnap-hed" class="detail-hed">Ensnapifacation</h2>
+        <p class="detail-copy">
+          Ensnapifacation is a playful card game full of surprises. Players take turns drawing challenge cards and must react quickly — bluffing and laughter encouraged.
+        </p>
+        <p class="detail-copy">
+          How to play (short): each round, one player reads a prompt, others respond with a card. The reader picks the funniest or best match. Rounds are quick and perfect for parties.
+        </p>
+        <p class="detail-copy">
+          (Longer details) This paragraph can be as long as you like — the yellow background will now stay consistent and readable. Because you asked, the text in this Ensnapifacation section is black for better contrast on the bright yellow background.
+        </p>
+        <p><a href="#games" class="btn ghost">Back to games</a></p>
+      </div>
+    </section>
+
+    <section id="game-qazacatism" class="section-detail bg-green" aria-labelledby="qaza-hed">
+      <div class="detail-inner">
+        <h2 id="qaza-hed" class="detail-hed">Qazacatism</h2>
+        <p class="detail-copy">
+          Qazacatism is a quirky family-friendly card game created to spark conversation and silly debates. Expect strange scenarios, creative solutions, and lots of laughs.
+        </p>
+        <p class="detail-copy">
+          Quick overview: Players draw scenario cards and secretly choose a response. Votes are cast and the highest-voted answers win points. Simple setup, big replayability.
+        </p>
+        <p class="detail-copy">
+          (Longer details) Add as much text here as needed — the green section uses a brighter green background and dark text for readability.
+        </p>
+        <p><a href="#games" class="btn ghost">Back to games</a></p>
+      </div>
+    </section>
+
+    <!-- Features section
+         (Simple: explains why you like these games. I swapped this to a darker background as requested.) -->
+    <section id="features" class="section-lower bg-dark" aria-labelledby="features-heading">
       <div class="container">
-        <h2 id="features-heading">Why we love it</h2>
+        <h2 id="features-heading">Why we like these games</h2>
         <div class="features-grid">
           <div class="feature">
             <h4>Tested and Loved</h4>
-            <p>Each game has been tested by me and my people</p>
+            <p>All of these games (not much) have been tested by me and people I know.</p>
           </div>
           <div class="feature">
             <h4>Personalized Writing</h4>
-            <p>Rules, cards and explanations made to feel like we're really talking to you</p>
+            <p>The rules are written like a real person explaining them, not a rulebook yelling at you.</p>
           </div>
           <div class="feature">
             <h4>Instant play</h4>
-            <p>Start immediately — no long set up.</p>
+            <p>You can start playing almost right away. No long setup.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section-lower" aria-labelledby="contact-heading">
+    <!-- Contact section (replaced form with a single link button to your Google Form) -->
+    <section id="contact" class="section-lower bg-blue" aria-labelledby="contact-heading">
       <div class="container">
         <h2 id="contact-heading">Get in touch</h2>
-        <p>Wondering about something, asking about a game, or just saying hi? Email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></p>
+        <p>Wondering about something, asking about a game, or just saying hi? Fill out this google form</p>
 
-        <form class="contact-form" action="https://formspree.io/f/your-form-id" method="POST">
-          <label>
-            <span class="sr-only">Name</span>
-            <input name="name" type="text" placeholder="Your name" required />
-          </label>
-          <label>
-            <span class="sr-only">Email</span>
-            <input name="email" type="email" placeholder="you@example.com" required />
-          </label>
-          <label>
-            <span class="sr-only">Message</span>
-            <textarea name="message" rows="4" placeholder="Tell us about your project"></textarea>
-          </label>
-          <div style="display:flex;gap:.6rem;align-items:center;">
-            <button class="btn primary" type="submit">Send message</button>
-            <small class="muted">Or email <a href="mailto:hello@yourbrand.com">hello@yourbrand.com</a></small>
-          </div>
-        </form>
+        <!-- Simple link button to Google Form as requested -->
+        <p style="margin-top:1rem;">
+          <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLScyiXBzhZaaw4fFN_U7o15FVv-h3ppfI_H6693ZOipNPSxM8A/viewform?usp=header" target="_blank" rel="noopener">Say hi?</a>
+        </p>
       </div>
     </section>
   </main>
 
+  <!-- Footer block: site footer and small links -->
   <footer class="site-footer" role="contentinfo">
     <div class="container footer-inner">
-      <small>© <span id="year"></span> YourBrand — Built with care</small>
+      <small>© <span id="year"></span> Cardists — Made for fun</small>
       <div class="social">
-        <a href="#" aria-label="Twitter">T</a>
-        <a href="#" aria-label="GitHub">G</a>
+        <a href="#" aria-label="Twitter">Back</a>
+        <a href="#" aria-label="GitHub">to Top</a>
       </div>
     </div>
   </footer>
 
-  <!-- GSAP & ScrollTrigger -->
+  <!-- Scripts: GSAP drives animations and ScrollTrigger handles scroll-based reveals.
+       (Simple: this makes the cards float and elements animate on scroll.) -->
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
   <script>
-    // small helper
+    // small helper: sets the year in the footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
     // Wait for fonts & layout to settle
     (function(){
+      // This script runs the entrance animations and scroll reveals.
+      // (Simple: makes headings and cards slide/fade in, and makes cards float.)
       if (typeof gsap === 'undefined') return;
       gsap.registerPlugin(ScrollTrigger);
 
