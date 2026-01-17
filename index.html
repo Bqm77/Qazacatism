@@ -106,8 +106,9 @@
     .bg-green .hero-sub   { color: #0b2b13 !important; }
     .bg-green .kpis        { color: #0b2b13 !important; }
     .bg-green .kpis li     { color: #0b2b13 !important; }
-    .bg-green .btn.primary { background: var(--accent) !important; color: #022326 !important; }
-    .bg-green .btn.ghost { background: rgba(0,0,0,0.1) !important; color: #000 !important; border-color: rgba(0,0,0,0.2) !important; }
+    .bg-green .btn { opacity: 1 !important; visibility: visible !important; }
+    .bg-green .btn.primary { background: #00e5c4 !important; color: #022326 !important; box-shadow: 0 12px 30px rgba(0,229,196,0.12) !important; }
+    .bg-green .btn.ghost { background: rgba(255,255,255,0.2) !important; color: #000 !important; border: 1px solid rgba(0,0,0,0.3) !important; }
 
     .bg-dark .feature,
     .bg-dark .feature h4 {
@@ -543,13 +544,13 @@
         <p class="section-lead">A complete collection of our games... I know it's not much, but hopefully there will be more coming soon</p>
 
         <div class="grid">
-          <article class="tile" tabindex="0">
+          <article class="tile" tabindex="0" onclick="setTimeout(() => {switchGame('ensnapifacation'); document.getElementById('content-area').scrollIntoView({behavior: 'smooth'});}, 100); event.preventDefault();" style="cursor: pointer;">
             <div class="tile-art" style="background-image:url('resources/Ensnapifacation.png');background-size:cover;background-position:center"></div>
             <h3>Ensnapifacation</h3>
             <p class="tile-meta">Card game • 15min</p>
           </article>
 
-          <article class="tile" tabindex="0">
+          <article class="tile" tabindex="0" onclick="setTimeout(() => {switchGame('qazacatism'); document.getElementById('content-area').scrollIntoView({behavior: 'smooth'});}, 100); event.preventDefault();" style="cursor: pointer;">
             <div class="tile-art" style="background-image:url('resources/qazacatism-cover copy.png');background-size:cover;background-position:center"></div>
             <h3>Qazacatism</h3>
             <p class="tile-meta">Card Game • 7min</p>
@@ -692,6 +693,7 @@
     let quickMode = true;
     let expandedCards = {};
     let searchTerm = '';
+    let searchCursorPos = 0;
 
     // Card Data
     const ensnapCards = [
@@ -1109,7 +1111,18 @@
               id="card-search-input"
               placeholder="Search cards..."
               value="${searchTerm}"
-              oninput="searchTerm = this.value; renderContent(); setTimeout(() => document.getElementById('card-search-input').focus(), 10);"
+              oninput="
+                searchCursorPos = this.selectionStart;
+                searchTerm = this.value; 
+                renderContent(); 
+                setTimeout(() => {
+                  const input = document.getElementById('card-search-input');
+                  if(input) {
+                    input.focus();
+                    input.setSelectionRange(searchCursorPos, searchCursorPos);
+                  }
+                }, 0);
+              "
             />
           </div>
 
@@ -1144,16 +1157,17 @@
                       : '<polyline points="6 9 12 15 18 9"></polyline>'
                     }
                   </svg>
-                </button>
-                
-                ${isExpanded ? `
-                  <div class="card-body expanded">
-                    <div class="card-effect">${card.effect}</div>
-                    ${card.quote ? `<div class="card-quote">"${card.quote}"</div>` : ''}
-                  </div>
-                ` : ''}
-              </div>
-            `;
+                </button>`;
+            
+            if (isExpanded) {
+              html += `
+                <div class="card-body">
+                  <div class="card-effect">${card.effect}</div>
+                  ${card.quote ? `<div class="card-quote">"${card.quote}"</div>` : ''}
+                </div>`;
+            }
+            
+            html += `</div>`;
           });
         }
 
