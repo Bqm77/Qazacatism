@@ -350,6 +350,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 0.75rem;
+      align-items: start;
     }
 
     .card-item {
@@ -357,6 +358,7 @@
       border-radius: 0.75rem;
       overflow: hidden;
       border: 1px solid rgba(71, 85, 105, 0.5);
+      height: auto;
     }
 
     .card-header {
@@ -780,8 +782,16 @@
       `).join('');
     }
 
-    function toggleCardExpansion(cardName) {
-      expandedCards[cardName] = !expandedCards[cardName];
+    function toggleCardExpansion(cardId) {
+      // Only one card can be expanded at a time
+      if (expandedCards[cardId]) {
+        // If clicking the same card, close it
+        expandedCards = {};
+      } else {
+        // Close all and open only this one
+        expandedCards = {};
+        expandedCards[cardId] = true;
+      }
       renderContent();
     }
 
@@ -1141,11 +1151,12 @@
           `;
         } else {
           filteredCards.forEach((card, index) => {
-            const isExpanded = expandedCards[card.name] === true;
-            const cardId = `card-${currentGame}-${index}`;
+            // Create a truly unique ID using game, card name, and index
+            const cardId = `${currentGame}-card-${index}-${card.name.replace(/[^a-zA-Z0-9]/g, '')}`;
+            const isExpanded = expandedCards[cardId] === true;
             html += `
-              <div class="card-item" id="${cardId}">
-                <button class="card-header" onclick="toggleCardExpansion('${card.name.replace(/'/g, "\\'")}')">
+              <div class="card-item">
+                <button class="card-header" onclick="event.stopPropagation(); toggleCardExpansion('${cardId}');">
                   <div class="card-header-left">
                     <div class="card-dot" style="background: ${card.color};"></div>
                     <span style="font-weight: bold;">${card.name}</span>
