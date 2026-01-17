@@ -106,6 +106,8 @@
     .bg-green .hero-sub   { color: #0b2b13 !important; }
     .bg-green .kpis        { color: #0b2b13 !important; }
     .bg-green .kpis li     { color: #0b2b13 !important; }
+    .bg-green .btn.primary { background: var(--accent) !important; color: #022326 !important; }
+    .bg-green .btn.ghost { background: rgba(0,0,0,0.1) !important; color: #000 !important; border-color: rgba(0,0,0,0.2) !important; }
 
     .bg-dark .feature,
     .bg-dark .feature h4 {
@@ -388,11 +390,6 @@
 
     .card-body {
       padding: 0 1rem 1rem 1rem;
-      display: none;
-    }
-
-    .card-body.expanded {
-      display: block;
     }
 
     .card-effect {
@@ -506,7 +503,7 @@
           <div class="cards" id="cards">
             <div class="cards-bg" style="position:absolute;top:150px;left:50%;transform:translateX(-50%);width:360px;height:360px;background-image:url('resources/Cardist%20logo.png');background-size:cover;background-position:center;border-radius:12px;z-index:0;pointer-events:none;"></div>
 
-            <a class="card-link" href="#games" title="Ensnapifacation - details">
+            <a class="card-link" href="#games" onclick="setTimeout(() => {switchGame('ensnapifacation'); document.getElementById('content-area').scrollIntoView({behavior: 'smooth'});}, 100);" title="Ensnapifacation - details">
               <div class="card card-a" role="group" aria-label="Ensnapifacation card">
                 <div class="card-art" style="background-image:url('resources/Back.png');background-size:cover;background-position:center" role="img" aria-label="Ensnapifacation image"></div>
                 <div class="card-info">
@@ -516,7 +513,7 @@
               </div>
             </a>
 
-            <a class="card-link" href="#games" title="Qazacatism - details">
+            <a class="card-link" href="#games" onclick="setTimeout(() => {switchGame('qazacatism'); document.getElementById('content-area').scrollIntoView({behavior: 'smooth'});}, 100);" title="Qazacatism - details">
               <div class="card card-c" role="group" aria-label="Qazacatism card">
                 <div class="card-art" style="background-image:url('resources/qazacatism-cover.png');background-size:cover;background-position:center" role="img" aria-label="Qazacatism image"></div>
                 <div class="card-info">
@@ -1109,9 +1106,10 @@
             <input 
               type="text" 
               class="search-input" 
+              id="card-search-input"
               placeholder="Search cards..."
               value="${searchTerm}"
-              oninput="searchTerm = this.value; renderContent();"
+              oninput="searchTerm = this.value; renderContent(); setTimeout(() => document.getElementById('card-search-input').focus(), 10);"
             />
           </div>
 
@@ -1129,10 +1127,11 @@
             </div>
           `;
         } else {
-          filteredCards.forEach(card => {
-            const isExpanded = expandedCards[card.name];
+          filteredCards.forEach((card, index) => {
+            const isExpanded = expandedCards[card.name] === true;
+            const cardId = `card-${currentGame}-${index}`;
             html += `
-              <div class="card-item">
+              <div class="card-item" id="${cardId}">
                 <button class="card-header" onclick="toggleCardExpansion('${card.name.replace(/'/g, "\\'")}')">
                   <div class="card-header-left">
                     <div class="card-dot" style="background: ${card.color};"></div>
@@ -1147,10 +1146,12 @@
                   </svg>
                 </button>
                 
-                <div class="card-body${isExpanded ? ' expanded' : ''}">
-                  <div class="card-effect">${card.effect}</div>
-                  ${card.quote ? `<div class="card-quote">"${card.quote}"</div>` : ''}
-                </div>
+                ${isExpanded ? `
+                  <div class="card-body expanded">
+                    <div class="card-effect">${card.effect}</div>
+                    ${card.quote ? `<div class="card-quote">"${card.quote}"</div>` : ''}
+                  </div>
+                ` : ''}
               </div>
             `;
           });
